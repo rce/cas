@@ -14,6 +14,7 @@ import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.AttributeOverrides;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 
 import java.io.Serial;
@@ -31,7 +32,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AttributeOverrides(@AttributeOverride(name = "body", column = @Column(columnDefinition = "text")))
 @Entity(name = "PostgresJpaTicketEntity")
-@Table(name = "CasTickets")
+@Table(name = "CasTickets", indexes = @Index(columnList = "parentId"))
 @Setter
 @Getter
 @Accessors(chain = true)
